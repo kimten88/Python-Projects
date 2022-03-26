@@ -22,7 +22,7 @@ conn.close
 
 conn = sqlite3.connect('test.db')
 
-
+#created loop to find .txt files from file list and put them into the database
 with conn:
     cur = conn.cursor()
     for filename in fileList:
@@ -31,6 +31,7 @@ with conn:
                    (filename,) )
         conn.commit()
 conn.close()
+
 
 conn = sqlite3.connect('test.db')
 with conn:
