@@ -1,17 +1,10 @@
 from django.db import models
 
-# three objects from djangoClasses
-TITLE_CHOICES = {
-    ('Virtual Environments', 'Virtual Environments'),
-    ('Models', 'Models'),
-    ('Templates', 'Templates'),
-}
-
 
 # create class of DjangoClasses w/ module manager
 class DjangoClasses(models.Model):
     # course titles
-    title = models.CharField(max_length=60, choices=TITLE_CHOICES)
+    title = models.CharField(max_length=60)
     # course numbers with integer values
     courseNumber = models.DecimalField(max_length=60, max_digits=10000, decimal_places=2)
     # instructor names
@@ -21,5 +14,19 @@ class DjangoClasses(models.Model):
 
     objects = models.Manager()
 
-    def __str__(self):
-        return self.title
+
+# three objects from djangoClasses
+class1 = DjangoClasses(title="Virtual Environments", courseNumber=1000, instructorName="Dr Thompson", duration=1.5)
+class1.save()
+
+# three objects from djangoClasses
+class2 = DjangoClasses(title="Modules", courseNumber=1100, instructorName="Dr Jackson", duration=2.0)
+class2.save()
+
+# three objects from djangoClasses
+class3 = DjangoClasses(title="Templates", courseNumber=1200, instructorName="Dr Morris", duration=2.5)
+class3.save()
+
+
+def __str__(self):
+    return self.title
